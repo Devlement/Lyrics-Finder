@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full bg-[#fcfbfa] text-stone-800 selection:bg-stone-900 selection:text-stone-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LyricFinder — Recueil Éditorial de Paroles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-full flex flex-col antialiased bg-[#fcfbfa]">
+
+    <header class="border-b border-stone-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2 cursor-pointer group">
+                <span class="text-2xl font-black tracking-tighter text-stone-900 font-serif group-hover:opacity-80 transition-opacity ">LyricsFinder.</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-[10px] font-bold tracking-widest uppercase px-3 py-1 bg-stone-100 text-stone-600">Accueil</span>
+                <button id="theme-toggle" aria-label="Changer de thème" class="ml-2 px-3 py-1 rounded bg-stone-200 text-stone-700 hover:bg-stone-300 transition-colors focus:outline-none focus:ring-2 focus:ring-stone-400">
+                    <span id="theme-toggle-text">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-3xl w-full mx-auto px-6 py-20 flex flex-col space-y-16">
+        
+        <section class="space-y-6 bg-[#fcfbfa] p-8 rounded-lg border border-stone-200">
+            <h1 class="text-4xl sm:text-6xl font-black text-stone-900 tracking-tight leading-none font-serif">
+                L'essentiel de la musique, <br>
+                <span class="italic font-normal text-stone-600">mot pour mot.</span>
+            </h1>
+            <p class="text-stone-500 text-base sm:text-lg max-w-xl font-normal leading-relaxed">
+                Une interface épurée, exempte de distractions, pensée exclusivement pour la lecture et l'analyse des textes de vos artistes favoris.
+            </p>
+            
+            <form id="search-form" class="mt-10 flex items-center gap-2 p-2 bg-white border border-stone-200 transition-all duration-300">
+                <div class="flex-1 flex items-center pl-3">
+                    <svg class="w-5 h-5 text-stone-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <input type="text" id="search-input" required placeholder="Rechercher un artiste, une chanson..." class="w-full bg-transparent px-3 py-3 text-stone-800 placeholder-stone-400 focus:outline-none font-medium text-base">
+                </div>
+                <button type="submit" class="px-6 py-3.5 text-sm font-bold tracking-wide transition-all duration-200">
+                    Rechercher
+                </button>
+            </form>
+        </section>
+
+        <div id="loader" class="hidden flex flex-col justify-center items-center py-20 space-y-4">
+            <div class="animate-spin rounded-full h-8 w-8 border-2 border-stone-200 border-t-stone-900"></div>
+            <p class="text-[10px] font-bold tracking-widest uppercase text-stone-400">Indexation en cours</p>
+        </div>
+
+        <section id="results-container" class="hidden space-y-6">
+            <div class="flex items-center justify-between border-b border-stone-200 pb-2">
+                <h2 id="results-title" class="text-2xl font-bold tracking-tight text-stone-900 font-serif">Résultats de recherche</h2>
+                <button id="clear-results-btn" class="px-4 py-2.5 text-xs font-bold transition-all duration-200">
+                    Nouvelle recherche
+                </button>
+            </div>
+            <div id="results-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-0 border-t border-l border-stone-200 [&>*]:border-r [&>*]:border-b">
+            </div>
+        </section>
+
+        <section id="lyrics-container" class="hidden space-y-8 bg-white border border-stone-200">
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6 border-b border-stone-100 pb-6">
+                <div class="space-y-2">
+                    <h2 id="lyrics-title" class="text-3xl font-bold tracking-tight text-stone-900 font-serif">Titre de la musique</h2>
+                    <p id="lyrics-artist" class="text-xs font-bold uppercase tracking-widest text-stone-500">Artiste original</p>
+                </div>
+                <button id="back-btn" class="px-4 py-2.5 text-xs font-bold transition-all duration-200">
+                    Index
+                </button>
+            </div>
+            
+            <div id="lyrics-text" class="whitespace-pre-line"></div>
+            
+            <div class="border-t border-stone-100 pt-6 space-y-3">
+                <h4 class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Écouter l'œuvre sur</h4>
+                <div id="music-links" class="flex flex-wrap gap-3"></div>
+            </div>
+        </section>
+
+        <div id="message-box" class="hidden p-4 bg-stone-100 text-stone-700 text-center text-sm font-medium border border-stone-200"></div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 bg-white py-10 text-center space-y-2">
+        <p class="text-xs font-medium tracking-wide text-stone-400">&copy; 2026 LyricFinder — Archives Musicales Numériques.</p>
+        <p class="text-[9px] uppercase tracking-widest text-stone-400 font-bold">Fait avec ❤️ par Devlément</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

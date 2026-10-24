@@ -1,0 +1,384 @@
+/* ==========================================================================
+   NOUVELLE ARCHITECTURE VISUELLE : DESIGN ÉDITORIAL & MINIMALISTE PREMIUM
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Métamorphose complète du fond : Passage à un ton Alabastre/Crème épuré et lumineux */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #1e293b; /* slate-800 */
+    background-color: #fcfbfa; /* Blanc chaud / Ivoire doux */
+    background-image: 
+        radial-gradient(circle at 80% 10%, rgba(241, 245, 249, 1) 0%, transparent 50%),
+        radial-gradient(circle at 10% 80%, rgba(245, 245, 244, 1) 0%, transparent 60%);
+    background-attachment: fixed;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ==========================================================================
+   ARCHITECTURE DARK MODE UNIFIÉE
+   ========================================================================== */
+body.dark-mode {
+    color: #ecebe9; /* ivoire doux */
+    background-color: #18181b; /* stone-900 */
+    background-image: 
+        radial-gradient(circle at 80% 10%, rgba(36, 33, 30, 0.7) 0%, transparent 50%),
+        radial-gradient(circle at 10% 80%, rgba(36, 33, 30, 0.5) 0%, transparent 60%);
+}
+
+body.dark-mode .bg-white,
+body.dark-mode .bg-\[\#fcfbfa\],
+body.dark-mode .bg-stone-100,
+body.dark-mode main section {
+    background-color: #23201c !important;
+}
+body.dark-mode .text-stone-900,
+body.dark-mode .text-stone-800,
+body.dark-mode .text-stone-600 {
+    color: #ecebe9 !important;
+}
+body.dark-mode .border-stone-200,
+body.dark-mode .border-stone-100,
+body.dark-mode #results-container div {
+    border-color: #35322e !important;
+}
+body.dark-mode input,
+body.dark-mode textarea {
+    background-color: #23201c !important;
+    color: #ecebe9 !important;
+    border-color: #35322e !important;
+}
+body.dark-mode ::selection {
+    background-color: #ecebe9;
+    color: #18181b;
+}
+
+body.dark-mode #search-form {
+    background: #23201c !important;
+    border: 1px solid #35322e !important;
+    box-shadow: 0 10px 30px -10px rgba(36, 33, 30, 0.12) !important;
+}
+body.dark-mode #search-form:focus-within {
+    border-color: #ecebe9 !important;
+    box-shadow: 0 20px 40px -15px rgba(236, 235, 233, 0.08) !important;
+}
+body.dark-mode #search-form button[type="submit"] {
+    background-color: #ecebe9 !important;
+    color: #18181b !important;
+}
+body.dark-mode #search-form button[type="submit"]:hover {
+    background-color: #a8a29e !important;
+    color: #18181b !important;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+    background-color: #23201c !important;
+    color: #ecebe9 !important;
+    border-color: #35322e !important;
+}
+body.dark-mode header .text-stone-900,
+body.dark-mode header .text-stone-600,
+body.dark-mode header .bg-stone-100 {
+    color: #ecebe9 !important;
+    background-color: #23201c !important;
+}
+body.dark-mode footer .text-stone-700,
+body.dark-mode footer .text-stone-600 {
+    color: #ecebe9 !important;
+}
+
+body.dark-mode .song-card {
+    background: #23201c !important;
+    border: 1px solid #35322e !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+body.dark-mode .song-card:hover {
+    background: #282522 !important;
+    border-color: #ecebe9 !important;
+    box-shadow: 0 16px 32px -16px rgba(236, 235, 233, 0.10);
+}
+body.dark-mode .song-card h3.song-card-title {
+    color: #ecebe9 !important;
+}
+body.dark-mode .song-card p.song-card-artist {
+    color: #a8a29e !important;
+}
+body.dark-mode .song-card-btn {
+    color: #a8a29e !important;
+}
+body.dark-mode .song-card:hover .song-card-btn {
+    color: #ecebe9 !important;
+}
+
+body.dark-mode #lyrics-container {
+    background: #23201c !important;
+    border: 1px solid #35322e !important;
+    box-shadow: 0 30px 60px -25px rgba(36, 33, 30, 0.10) !important;
+}
+body.dark-mode #lyrics-title {
+    color: #ecebe9 !important;
+}
+body.dark-mode #lyrics-artist {
+    color: #a8a29e !important;
+}
+body.dark-mode #lyrics-text {
+    color: #ecebe9 !important;
+    border-left: 2px solid #ecebe9 !important;
+}
+body.dark-mode #back-btn {
+    background: transparent !important;
+    border: 1px solid #ecebe9 !important;
+    color: #ecebe9 !important;
+}
+body.dark-mode #back-btn:hover {
+    background: #ecebe9 !important;
+    color: #18181b !important;
+}
+body.dark-mode #message-box {
+    background: #23201c !important;
+    color: #ecebe9 !important;
+    border: 1px solid #35322e !important;
+}
+body.dark-mode .music-link-btn {
+    border-color: #35322e !important;
+    background-color: #1f1c1a !important;
+    color: #ecebe9 !important;
+}
+body.dark-mode .music-link-btn:hover {
+    border-color: #ecebe9 !important;
+    background-color: #282522 !important;
+}
+
+/* Barre de défilement Haute Couture */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #fcfbfa; 
+}
+::-webkit-scrollbar-thumb {
+    background: #e7e5e4; /* stone-300 */
+    border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #1c1917; /* stone-900 */
+}
+
+::selection {
+    background-color: #1c1917;
+    color: #fcfbfa;
+}
+
+/* Animation de transition organique par balayage fluide */
+@keyframes editorialReveal {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#results-container:not(.hidden), 
+#lyrics-container:not(.hidden),
+#message-box:not(.hidden) {
+    animation: editorialReveal 0.6s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
+}
+
+/* ==========================================================================
+   BARRE DE RECHERCHE (Épurée & Flottante)
+   ========================================================================== */
+#search-form {
+    background: #ffffff !important;
+    border: 1px solid #e7e5e4 !important;
+    box-shadow: 0 10px 30px -10px rgba(28, 25, 23, 0.05) !important;
+    border-radius: 0px !important; /* Cohérence éditoriale : angles droits partout */
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#search-form:focus-within {
+    border-color: #1c1917 !important;
+    box-shadow: 0 20px 40px -15px rgba(28, 25, 23, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+#search-form button[type="submit"] {
+    background-color: #1c1917 !important;
+    color: #fcfbfa !important;
+    border-radius: 0px !important; /* Angles droits */
+    font-weight: 600 !important;
+    transition: all 0.25s ease;
+}
+
+#search-form button[type="submit"]:hover {
+    background-color: #44403c !important; /* stone-700 */
+    box-shadow: 0 4px 12px rgba(28, 25, 23, 0.15);
+}
+
+/* ==========================================================================
+   CARTES DE RÉSULTATS (.song-card) : STYLE GALERIE D'ART
+   ========================================================================== */
+.song-card {
+    background: #ffffff;
+    border: 1px solid #e7e5e4;
+    border-radius: 0; 
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.song-card:hover {
+    background: #fdfdfd;
+    border-color: #1c1917;
+    transform: scale(1.015);
+    box-shadow: 0 16px 32px -16px rgba(28, 25, 23, 0.12);
+    z-index: 10;
+}
+
+/* Jaquette d'album */
+.song-card-img {
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 0; 
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    filter: grayscale(20%); 
+    transition: all 0.3s ease;
+}
+
+.song-card:hover .song-card-img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+}
+
+/* Typographie intérieure */
+.song-card h3.song-card-title {
+    color: #1c1917;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+}
+
+.song-card p.song-card-artist {
+    color: #78716c; 
+    font-weight: 500;
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+}
+
+/* Bouton flèche d'action épuré */
+.song-card-btn {
+    color: #a8a29e;
+    background: transparent;
+    border: none;
+    width: auto;
+    height: auto;
+    padding: 0;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.song-card:hover .song-card-btn {
+    color: #1c1917;
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   ZONE DES PAROLES (Style Journal Littéraire / Recueil de Poésie)
+   ========================================================================== */
+#lyrics-container {
+    background: #ffffff !important;
+    border: 1px solid #e7e5e4 !important;
+    border-radius: 0px !important; 
+    box-shadow: 0 30px 60px -25px rgba(28, 25, 23, 0.08) !important;
+    padding: 3rem 2rem !important;
+}
+
+#lyrics-title {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 800;
+    font-size: 2.25rem !important;
+    color: #1c1917 !important;
+    letter-spacing: -0.01em;
+}
+
+#lyrics-artist {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    color: #78716c !important; 
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+#lyrics-text {
+    font-family: 'Playfair Display', serif !important; 
+    font-style: italic;
+    color: #292524; 
+    font-size: 1.25rem;
+    line-height: 2; 
+    letter-spacing: 0;
+    text-align: left; 
+    margin: 3.5rem auto 0 auto;
+    padding-left: 2rem;
+    border-left: 2px solid #1c1917; 
+    max-width: 32rem;
+    text-shadow: none;
+}
+
+/* Bouton Retour Épuré */
+#back-btn {
+    background: transparent;
+    border: 1px solid #1c1917;
+    color: #1c1917;
+    border-radius: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#back-btn:hover {
+    background: #1c1917;
+    color: #fcfbfa;
+    box-shadow: 0 4px 12px rgba(28, 25, 23, 0.15);
+}
+
+/* Stylisation premium pour les boutons de plateformes de streaming */
+.music-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e7e5e4;
+    background-color: #ffffff;
+    color: #1c1917;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+}
+
+.music-link-btn:hover {
+    border-color: #1c1917;
+    background-color: #fcfbfa;
+    transform: translateY(-1px);
+}
+
+.music-link-btn svg {
+    width: 1rem;
+    height: 1rem;
+}
